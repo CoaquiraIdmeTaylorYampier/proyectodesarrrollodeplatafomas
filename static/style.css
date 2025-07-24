@@ -17,17 +17,18 @@ img {
     margin: 0 auto;
 }
 .header {
-    min-height: 80vh;   /*ocupa el 80% de la pantalla*/
+    /* IMPORTANTE: ELIMINAR min-height: 80vh; */
+    /* Deja que el padding y el contenido definan la altura del header de navegación */
     background-color: #f5f5f5;
-    padding: 70px 0;
+    padding: 70px 0; /* Esto ya le da una buena altura al header */
 }
 .menu {
-    position: absolute; /*posiciona como un encabezado*/
-    left: 0;/*alinia al border izquierdo*/
+    position: absolute;
+    left: 0;
     right: 0;
-    display: flex;    /*los elementos dentro de él) se alinean automáticamente uno al lado del otro */
+    display: flex;
     align-items: center;
-    justify-content: space-between; /*distribuye espacio entre elementos*/
+    justify-content: space-between;
 }
 .logo {
     font-size: 25px;
@@ -45,7 +46,7 @@ img {
     font-size: 18px;
     padding: 20px;
     color: black;
-    display: block;     /*Puedes hacer clic en toda la caja del enlace, incluso en los bordes:*/
+    display: block;
 }
 
 .submenu #carrito{
@@ -55,7 +56,7 @@ img {
     display: block;
     position: absolute;
     right: 0;
-    z-index: 1;     /*Asegura que el carrito esté por encima de otros elementos*/
+    z-index: 1;
     background-color: #4E4B5076;
     padding: 20px;
     min-width: 400px;
@@ -68,7 +69,7 @@ th, td {
 }
 .header-cuerpo {
     display: flex;
-    justify-content: space-between; /*espacio entre elementos*/
+    justify-content: space-between;
     align-items: center;      
     flex: 1;
     padding: 0 200px;
@@ -84,7 +85,7 @@ th, td {
 .header-txt h1 {
     font-size: 90px;
     text-transform: uppercase;
-    line-height: 1; /*regula el salto de linea (espacio entre lineas)*/
+    line-height: 1;
     color: black;
     font-family: 'Oswald', sans-serif;
     margin-bottom: 15px;
@@ -262,11 +263,11 @@ th, td {
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     margin-bottom: 50px;
-    flex-wrap: wrap; /* Para que se adapte en pantallas pequeñas */
+    flex-wrap: wrap;
 }
 
 .info-detalle img {
-    max-width: 400px; /* Tamaño máximo para la imagen del producto */
+    max-width: 400px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -274,7 +275,7 @@ th, td {
 
 .info-txt {
     flex: 1;
-    min-width: 300px; /* Para que el texto no se comprima demasiado */
+    min-width: 300px;
     text-align: left;
 }
 
@@ -304,25 +305,23 @@ th, td {
     margin-bottom: 10px;
 }
 
-/* Estilos para el botón "Volver a la ventana principal" */
 .btn-volver {
     display: inline-block;
-    margin: 20px auto; /* Centrar el botón */
+    margin: 20px auto;
     padding: 10px 20px;
     background-color: #67aff8;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     font-family: 'Oswald', sans-serif;
-    font-size: 18px; /* Aumentar el tamaño de la fuente */
-    transition: background-color 0.3s ease; /* Transición suave para el hover */
+    font-size: 18px;
+    transition: background-color 0.3s ease;
 }
 
 .btn-volver:hover {
-    background-color: #4a90e2; /* Color más oscuro al pasar el ratón */
+    background-color: #4a90e2;
 }
 
-/* Ajustes para dispositivos móviles (opcional) */
 @media (max-width: 768px) {
     .info-detalle {
         flex-direction: column;
@@ -335,9 +334,157 @@ th, td {
         text-align: center;
     }
     .info-txt ul {
-        text-align: left; /* Mantener la lista alineada a la izquierda */
+        text-align: left;
         margin-left: auto;
         margin-right: auto;
         max-width: 90%;
     }
+}
+
+/* --- ESTILOS AGREGADOS/AJUSTADOS PARA AUTENTICACIÓN --- */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ajusta esta altura para centrar el formulario. */
+    /* Calcula 100vh - (altura_header + altura_footer). */
+    /* Si tu header es ~100px y tu footer es ~200px, prueba con 300px aquí. */
+    min-height: calc(100vh - 270px); /* Ajusta este valor si es necesario */
+    padding: 50px 20px;
+    box-sizing: border-box;
+    background-color: #f0f2f5; /* Fondo suave */
+}
+
+.auth-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"],
+.auth-form input[type="email"] { /* Es vital que incluyas 'email' aquí para el registro */
+    width: calc(100% - 20px); /* 100% del padre menos el padding horizontal */
+    padding: 12px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    /* IMPORTANTE: ASEGURAR QUE NO HAY PROPIEDADES QUE LOS OCULTEN */
+    /* display: block; (a veces necesario si una regla general los pone inline) */
+    /* height: auto; */
+    /* min-height: 40px; (para asegurar que tengan una altura mínima) */
+}
+
+.auth-form input[type="text"]:focus,
+.auth-form input[type="password"]:focus,
+.auth-form input[type="email"]:focus {
+    border-color: black;
+    outline: none;
+}
+
+.auth-form button[type="submit"] {
+    background-color: black;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.auth-form button[type="submit"]:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+.auth-links {
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.auth-links a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.auth-links a:hover {
+    color: #555;
+    text-decoration: underline;
+}
+
+.errorlist {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    color: #dc3545;
+    font-size: 14px;
+    text-align: left;
+}
+
+.errorlist li {
+    margin-bottom: 5px;
+}
+
+.messages-container {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    text-align: left;
+}
+
+.message {
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
 }

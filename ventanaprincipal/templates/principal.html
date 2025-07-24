@@ -9,41 +9,52 @@
 </head>
 <body>
     <header class="header">
-        <div class="menu contenido"> 
-            <a href="#" class="logo">logo</a>
+        <div class="menu contenido">
+            <a href="{% url 'principal' %}" class="logo">logo</a>
             <input type="checkbox" id="menu" />
             <label for="menu">
                 <img src="{% static 'imagenes/menu.png' %}" class="menu-icono" alt="menu">
             </label>
             <nav class="inicio">
                 <ul>
-                    <li><a href="#">INICIO</a></li>
+                    <li><a href="{% url 'principal' %}">INICIO</a></li>
                     <li><a href="#">SERVICIOS</a></li>
                     <li><a href="#">PRODUCTOS</a></li>
                     <li><a href="#">CONTACTOS</a></li>
+                    {# AQUI SE INTEGRAN LOS ENLACES DE AUTENTICACION #}
+                    {% if user.is_authenticated %} {# Si el usuario está autenticado #}
+                        <li><a href="{% url 'logout_usuario' %}">CERRAR SESIÓN ({{ user.username }})</a></li>
+                    {% else %} {# Si el usuario NO está autenticado #}
+                        <li><a href="{% url 'login_usuario' %}">INICIAR SESIÓN</a></li>
+                        <li><a href="{% url 'registro_usuario' %}">REGISTRARSE</a></li>
+                    {% endif %}
                 </ul>
             </nav>
-        <div>
-            <ul>
-                <li class="submenu">
-                    <img src="{% static 'imagenes/car.svg' %}" id="img-carrito" alt="carrito">
-                    <div id="carrito">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Imagen</th>
-                                    <th>Nombre</th>
-                                    <th>Precio</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                        <a href="#" id="vaciar-carrito" class="btn-2">vaciar carrito</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+            {# ESTE ES EL BLOQUE DEL CARRITO ORIGINAL, SIN LOGICA DE DJANGO POR AHORA #}
+            {# Lo mantendremos como un elemento visual, sin {% url 'ver_carrito' %} #}
+            <div>
+                <ul>
+                    <li class="submenu">
+                        <img src="{% static 'imagenes/car.svg' %}" id="img-carrito" alt="carrito">
+                        <div id="carrito">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {# Aquí irían los items del carrito si tuvieras JS o una app de carrito #}
+                                </tbody>
+                            </table>
+                            <a href="#" id="vaciar-carrito" class="btn-2">vaciar carrito</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class = "header-cuerpo contenido">
             <div class="header-img">
@@ -58,7 +69,6 @@
     </header>
 
     <section class="ofertas contenido">
-
         <div class="oferta-1">
             <div class="oferta-img">
                 <img src="{% static 'imagenes/kidarduino.png' %}" width="250" alt="">
@@ -183,6 +193,7 @@
     </div>
 </footer>
 
-    <script src="{% static 'scrip.js' %}"></script>
+    {# Si tenías un scrip.js para el carrito, puedes volver a incluirlo aquí si quieres que el carrito se despliegue con JS. #}
+    {# <script src="{% static 'scrip.js' %}"></script> #}
 </body>
 </html>
