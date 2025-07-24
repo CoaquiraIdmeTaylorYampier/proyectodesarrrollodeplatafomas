@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>componentesactivos</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <main class="productos contenido" id="lista-1">
+    <h2>SENSORES</h2>
+    <div class="producto-cuerpo">
+        <div class="producto">
+            <img src="{% static 'imagenes/sensortemperatura.png' %}" alt="">
+            <div class="producto-txt">
+                <h3>SEnsor de temperatura</h3>
+                <p>Sensor de temperatura TMP de 38GZ</p>
+                <p class="precio">$6</p>
+                <a href="" class="agregar-carrito btn-2" >agregar al carrito</a>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="{% static 'imagenes/sensorultrasonido.png' %}" alt="">
+            <div class="product0-txt">
+                <h3>sensor de sonido</h3>
+                <p>Sensor Ultrasonido HC-SR04 de arduino</p>
+                <p class="precio">$17</p>
+                <a href="" class="agregar-carrito btn-2" >agregar al carrito</a>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="{% static 'imagenes/sensorinfrarrojo.png' %}" alt="">
+            <div class="producto-txt">
+                <h3>sensor infrarrojo</h3>
+                <p>Sensor infrarrojo para obstaculos FC-51</p>
+                <p class="precio">$15</p>
+                <a href="" class="agregar-carrito btn-2" >agregar al carrito</a>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="{% static 'imagenes/sensortem.jpg' %}" alt="">
+            <div class="producto-txt">
+                <h3>sensor de humedad </h3>
+                <p>DHT11 sensor temperatura y humedad  para arduino</p>
+                <p class="precio">$12</p>
+                <a href="" class="agregar-carrito btn-2" >agregar al carrito</a>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="{% static 'imagenes/sensorluz.jpg' %}" alt="">
+            <div class="producto-txt">
+                <h3>regulador</h3>
+                <p>El sensor de luz LDR input analogico</p>
+                <p class="precio">$5</p>
+                <a href="" class="agregar-carrito btn-2" >agregar al carrito</a>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="{% static 'imagenes/sensorcol.jpg' %}" alt="">
+            <div class="producto-txt">
+                <h3>sensor de color</h3>
+                <p>TCS230 sensor reconocimiento de color</p>
+                <p class="precio">$18</p>
+                <a href="" class="agregar-carrito btn-2" >agregar al carrito</a>
+            </div>
+        </div>
+    </div>
+    <a href="{% url 'principal' %}" class="btn-volver">← Volver a la ventana principal</a>
+</main>
+<footer class="footer">
+    <div class="footer-cuerpo contenido">
+        <div class ="usuarios">
+            <h3>Contacto</h3>
+            <ul>
+                <li>Taylor</li>
+                <li>95678122</li>
+                <li>Av. Ferial</li>
+                <li>coaquiraidmetaylor@gmail.com</li>
+            </ul>
+        </div>
+        <div class ="usuarios">
+            <h3>Contacto</h3>
+            <ul>
+                <li>Chuchas</li>
+                <li>95678122</li>
+                <li>Jr. Callao</li>
+                 <li>miguelazo@gmail.com</li>
+            </ul>
+        </div>
+        <div class ="usuarios">
+            <h3>Contacto</h3>
+            <ul>
+                <li>Talento</li>
+                <li>95678122</li>
+                <li>Rio Torococha</li>
+                 <li>crisvalencia@gmail.com</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
