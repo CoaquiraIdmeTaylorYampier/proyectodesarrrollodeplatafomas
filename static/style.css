@@ -251,3 +251,93 @@ th, td {
 .btn-volver:hover {
     background-color: #d9e8f8;
 }
+
+.info-detalle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 50px;
+    flex-wrap: wrap; /* Para que se adapte en pantallas pequeñas */
+}
+
+.info-detalle img {
+    max-width: 400px; /* Tamaño máximo para la imagen del producto */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.info-txt {
+    flex: 1;
+    min-width: 300px; /* Para que el texto no se comprima demasiado */
+    text-align: left;
+}
+
+.info-txt h3 {
+    font-size: 30px;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 20px;
+}
+
+.info-txt p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.info-txt ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.info-txt ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el botón "Volver a la ventana principal" */
+.btn-volver {
+    display: inline-block;
+    margin: 20px auto; /* Centrar el botón */
+    padding: 10px 20px;
+    background-color: #67aff8;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px; /* Aumentar el tamaño de la fuente */
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+.btn-volver:hover {
+    background-color: #4a90e2; /* Color más oscuro al pasar el ratón */
+}
+
+/* Ajustes para dispositivos móviles (opcional) */
+@media (max-width: 768px) {
+    .info-detalle {
+        flex-direction: column;
+        text-align: center;
+    }
+    .info-detalle img {
+        max-width: 80%;
+    }
+    .info-txt {
+        text-align: center;
+    }
+    .info-txt ul {
+        text-align: left; /* Mantener la lista alineada a la izquierda */
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+    }
+}
