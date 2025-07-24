@@ -1,17 +1,13 @@
-# usuarios/views.py
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout # Funciones de autenticación de Django
-from django.contrib import messages # Para mostrar mensajes al usuario
+from django.contrib.auth import authenticate, login, logout 
+from django.contrib import messages
 from django.urls import reverse
-from .forms import RegistroUsuarioForm # Importamos nuestro formulario de registro
-from django.contrib.auth.models import User # Importamos el modelo de usuario
-from django.contrib.auth.forms import AuthenticationForm # Importamos este para el formulario de login de Django
+from .forms import RegistroUsuarioForm 
+from django.contrib.auth.models import User 
+from django.contrib.auth.forms import AuthenticationForm 
 
 def registro_usuario(request):
-    """
-    Vista para el registro de nuevos usuarios.
-    Maneja la lógica de presentación del formulario y el procesamiento de los datos enviados.
-    """
+
     if request.method == "POST":
         form = RegistroUsuarioForm(request.POST)
         if form.is_valid():
@@ -37,10 +33,7 @@ def registro_usuario(request):
     return render(request, "usuarios/registro.html", {"form": form})
 
 def login_usuario(request):
-    """
-    Vista para el inicio de sesión de usuarios.
-    Utiliza el AuthenticationForm de Django para manejar la autenticación.
-    """
+
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -56,9 +49,7 @@ def login_usuario(request):
     return render(request, "usuarios/login.html", {"form": form})
 
 def logout_usuario(request):
-    """
-    Vista para cerrar la sesión del usuario.
-    """
+ 
     logout(request)
     messages.info(request, "Has cerrado sesión correctamente.")
     return redirect('principal')

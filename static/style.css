@@ -18,17 +18,17 @@ img {
 }
 .header {
     background-color: #f5f5f5;
-    padding: 70px 0; /* Esto le da altura al header */
+    padding: 70px 0; 
 }
 .menu {
-    position: absolute; /* O 'relative' si no quieres que se superponga */
+    position: absolute; 
     left: 0;
     right: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px; /* Añade un poco de padding para que no esté pegado a los bordes */
-    z-index: 100; /* Asegura que esté por encima de otros elementos */
+    padding: 0 20px; 
+    z-index: 100; 
 }
 .logo {
     font-size: 25px;
@@ -49,14 +49,13 @@ img {
     display: block;
 }
 
-/* Menú hamburguesa (para móviles) */
 #menu {
-    display: none; /* Oculta el checkbox */
+    display: none; 
 }
 .menu-icono {
     width: 25px;
     cursor: pointer;
-    display: none; /* Oculto por defecto, visible en media query */
+    display: none;
 }
 
 .submenu #carrito{
@@ -82,7 +81,7 @@ th, td {
     justify-content: space-between;
     align-items: center;      
     flex: 1;
-    padding: 0 200px; /* Ajusta según necesidad */
+    padding: 0 200px; 
 }
 .header-img {
     flex-basis: 50%;
@@ -355,14 +354,14 @@ th, td {
     }
     .header-cuerpo {
         flex-direction: column;
-        padding: 150px 30px 30px 30px; /* Ajustado para el menú móvil */
+        padding: 150px 30px 30px 30px;
         text-align: center;
     }
     .header-txt h1 {
         font-size: 60px;
     }
     .header-img {
-        display: none; /* Oculta la imagen en móviles si no se ajusta bien */
+        display: none; 
     }
     .ofertas {
         flex-direction: column;
@@ -394,14 +393,11 @@ th, td {
     }
 }
 
-/* --- ESTILOS AGREGADOS/AJUSTADOS PARA AUTENTICACIÓN --- */
 .auth-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Calcula la altura disponible: 100vh - (altura_header + altura_footer). */
-    /* El header tiene padding 70px 0, y el footer 50px 0. Estima alturas. */
-    min-height: calc(100vh - 200px); /* Ajusta este valor si es necesario, (200px es una estimación) */
+    min-height: calc(100vh - 200px); 
     padding: 50px 20px;
     box-sizing: border-box;
     background-color: #f0f2f5;
@@ -440,17 +436,17 @@ th, td {
 
 .auth-form input[type="text"],
 .auth-form input[type="password"],
-.auth-form input[type="email"] { /* Es vital que incluyas 'email' aquí para el registro */
-    width: calc(100% - 20px); /* 100% del padre menos el padding horizontal */
+.auth-form input[type="email"] { 
+    width: calc(100% - 20px); 
     padding: 12px 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
-    display: block; /* Asegura que sean elementos de bloque */
+    display: block;
     height: auto;
-    min-height: 40px; /* Asegura una altura mínima */
+    min-height: 40px; 
 }
 
 .auth-form input[type="text"]:focus,

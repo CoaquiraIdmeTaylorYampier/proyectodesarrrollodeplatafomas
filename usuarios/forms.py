@@ -1,7 +1,5 @@
-# usuarios/forms.py
 from django import forms
-from django.contrib.auth.models import User # Importamos el modelo de usuario de Django
-
+from django.contrib.auth.models import User 
 class RegistroUsuarioForm(forms.Form):
     username = forms.CharField(
         max_length=150,
