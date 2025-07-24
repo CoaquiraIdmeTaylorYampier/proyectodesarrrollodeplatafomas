@@ -1,51 +1,64 @@
+# usuarios/views.py
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout # Funciones de autenticación de Django
+from django.contrib import messages # Para mostrar mensajes al usuario
 from django.urls import reverse
-from .forms import RegistroUsuarioForm
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import AuthenticationForm # Necesario para el formulario de login
+from .forms import RegistroUsuarioForm # Importamos nuestro formulario de registro
+from django.contrib.auth.models import User # Importamos el modelo de usuario
+from django.contrib.auth.forms import AuthenticationForm # Importamos este para el formulario de login de Django
 
 def registro_usuario(request):
+    """
+    Vista para el registro de nuevos usuarios.
+    Maneja la lógica de presentación del formulario y el procesamiento de los datos enviados.
+    """
     if request.method == "POST":
-        formulario = RegistroUsuarioForm(request.POST)
-        if formulario.is_valid():
-            user = formulario.save() # UserCreationForm.save() crea el usuario y hashea la contraseña
-            messages.success(request, f'¡Tu cuenta "{user.username}" ha sido creada exitosamente! Ahora puedes iniciar sesión.')
+        form = RegistroUsuarioForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+
+            user = User.objects.create_user(username=username, email=email, password=password)
+            user.save()
+
+            messages.success(request, f'¡Tu cuenta "{username}" ha sido creada exitosamente! Ahora puedes iniciar sesión.')
             return redirect('login_usuario')
         else:
-            # Los errores del formulario se añadirán a los mensajes de Django
-            for field, errors in formulario.errors.items():
+            for field, errors in form.errors.items():
                 for error in errors:
-                    # 'non_field_errors' son errores que no pertenecen a un campo específico (ej. contraseñas no coinciden)
                     if field == '__all__':
-                        messages.error(request, f"{error}")
+                        messages.error(request, f"Error: {error}")
                     else:
-                        messages.error(request, f"Error en '{field}': {error}")
+                        messages.error(request, f"Error en '{form[field].label}': {error}")
     else:
-        formulario = RegistroUsuarioForm() # Formulario vacío para una solicitud GET
+        form = RegistroUsuarioForm()
 
-    return render(request, "usuarios/registro.html", {"form": formulario}) # <--- NOTA: Pasamos como 'form'
+    return render(request, "usuarios/registro.html", {"form": form})
 
 def login_usuario(request):
+    """
+    Vista para el inicio de sesión de usuarios.
+    Utiliza el AuthenticationForm de Django para manejar la autenticación.
+    """
     if request.method == "POST":
-        form = AuthenticationForm(request, data=request.POST) # Django AuthenticationForm
+        form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
             messages.success(request, f'¡Bienvenido de nuevo, {user.username}!')
-            # Redirigir a la página a la que intentaba acceder (si existe 'next') o a la principal
             return redirect(request.GET.get('next', reverse('principal')))
         else:
-            # AuthenticationForm ya tiene errores de campo si las credenciales no son válidas
-            messages.error(request, "Usuario o contraseña incorrectos.")
-            # Es crucial pasar el formulario con los errores para que se muestren en el template
+            messages.error(request, "Nombre de usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
     else:
-        form = AuthenticationForm() # Formulario vacío para una solicitud GET
+        form = AuthenticationForm()
     
-    return render(request, "usuarios/login.html", {"form": form}) # <--- NOTA: Pasamos como 'form'
+    return render(request, "usuarios/login.html", {"form": form})
 
 def logout_usuario(request):
+    """
+    Vista para cerrar la sesión del usuario.
+    """
     logout(request)
     messages.info(request, "Has cerrado sesión correctamente.")
-    return redirect('principal') # Mejor redirigir a la principal, o donde quieras después del logout
+    return redirect('principal')

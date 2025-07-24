@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
-
 </head>
 <body>
     <header class="header">
@@ -73,7 +72,7 @@
                 {% for field in form %}
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
-                        {{ field }} {# Esto es CRUCIAL: renderiza el campo input/textarea/select HTML #}
+                        {{ field }}
                         {% if field.help_text %}
                             <small class="form-text text-muted">{{ field.help_text }}</small>
                         {% endif %}
