@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Kit Accesorios</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <main class="productos contenido">
+        <h2>INFORMACIÓN KIT ACCESORIOS</h2>
+        <div class="info-detalle">
+            <img src="{% static 'imagenes/kidaccesorios.jpg' %}" alt="Kit Accesorios">
+            <div class="info-txt">
+                <h3>Todo Tipo de Accesorios de Electrónica</h3>
+                <p>Este kit incluye una variedad de accesorios esenciales para cualquier proyecto de electrónica, desde herramientas básicas hasta componentes auxiliares.</p>
+                <ul>
+                    <li>Cables de conexión</li>
+                    <li>Soldador y estaño</li>
+                    <li>Pinzas y cortacables</li>
+                    <li>Cajas de proyectos</li>
+                    <li>Baterías y portapilas</li>
+                    <li>Conectores diversos</li>
+                    <li>Juego de destornilladores de precisión</li>
+                    <li>Componentes pasivos variados (resistencias, condensadores)</li>
+                </ul>
+                <p>Una colección indispensable para mantener tu espacio de trabajo ordenado y tus proyectos siempre listos.</p>
+            </div>
+        </div>
+        <a href="{% url 'principal' %}" class="btn-volver">← Volver a la ventana principal</a>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-cuerpo contenido">
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Taylor</li>
+                    <li>95678122</li>
+                    <li>Av. Ferial</li>
+                    <li>coaquiraidmetaylor@gmail.com</li>
+                </ul>
+            </div>
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Chuchas</li>
+                    <li>95678122</li>
+                    <li>Jr. Callao</li>
+                    <li>miguelazochuchazas@gmail.com</li>
+                </ul>
+            </div>
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Talento</li>
+                    <li>95678122</li>
+                    <li>Rio Torococha</li>
+                    <li>crisvalencia@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

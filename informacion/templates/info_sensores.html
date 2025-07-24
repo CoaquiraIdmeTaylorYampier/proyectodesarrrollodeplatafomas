@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Kit Sensores</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <main class="productos contenido">
+        <h2>INFORMACIÓN KIT SENSORES</h2>
+        <div class="info-detalle">
+            <img src="{% static 'imagenes/kidsensores2.jpg' %}" alt="Kit Sensores">
+            <div class="info-txt">
+                <h3>Kit Completo de Sensores Arduino UNO R3</h3>
+                <p>Este kit incluye una amplia variedad de sensores que te permitirán interactuar con el mundo físico y medir diferentes magnitudes, ideal para proyectos avanzados con Arduino.</p>
+                <ul>
+                    <li>Sensor de movimiento PIR</li>
+                    <li>Sensor de temperatura y humedad (DHT11)</li>
+                    <li>Sensor ultrasónico de distancia</li>
+                    <li>Sensor de luz (fotorresistencia)</li>
+                    <li>Sensor de sonido</li>
+                    <li>Sensor de vibración</li>
+                    <li>Módulo joystick</li>
+                    <li>Sensor de nivel de agua</li>
+                    <li>Módulo RFID</li>
+                    <li>Y muchos más...</li>
+                </ul>
+                <p>Amplía las capacidades de tus proyectos Arduino con esta colección versátil de sensores.</p>
+            </div>
+        </div>
+        <a href="{% url 'principal' %}" class="btn-volver">← Volver a la ventana principal</a>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-cuerpo contenido">
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Taylor</li>
+                    <li>95678122</li>
+                    <li>Av. Ferial</li>
+                    <li>coaquiraidmetaylor@gmail.com</li>
+                </ul>
+            </div>
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Chuchas</li>
+                    <li>95678122</li>
+                    <li>Jr. Callao</li>
+                    <li>miguelazochuchazas@gmail.com</li>
+                </ul>
+            </div>
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Talento</li>
+                    <li>95678122</li>
+                    <li>Rio Torococha</li>
+                    <li>crisvalencia@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

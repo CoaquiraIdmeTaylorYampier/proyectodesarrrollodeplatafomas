@@ -10,7 +10,11 @@
 <body>
     <header class="header">
         <div class="menu contenido"> 
-            <a href="#" class="logo">ElectroHub</a>
+            <a href="#" class="logo">logo</a>
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="{% static 'imagenes/menu.png' %}" class="menu-icono" alt="menu">
+            </label>
             <nav class="inicio">
                 <ul>
                     <li><a href="#">INICIO</a></li>
@@ -30,7 +34,7 @@
                                     <th>Imagen</th>
                                     <th>Nombre</th>
                                     <th>Precio</th>
-                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -47,7 +51,7 @@
             </div>
             <div class="header-txt">
                 <h1>Ofertas Especiales</h1>
-                <p>Compre lo mejor en tecnologia/electronica</p>
+                <p>Compre lo mejor en tecnologia</p>
                 <a href="#" class="btn-1">informacion</a>
             </div>
         </div>
@@ -62,7 +66,7 @@
             <div class="oferta-txt">
                 <h3>KID ARDUINO</h3>
                 <p>Kit completo de arduino con todo incluido</p>
-                <a href = "#" class="btn-2">informacion</a>
+                <a href="{% url 'info_arduino' %}" class="btn-2">informacion</a>
             </div>
         </div>
         <div class="oferta-1">
@@ -72,7 +76,7 @@
             <div class="oferta-txt">
                 <h3>KID SENSORES</h3>
                 <p>Kid completo de sensores arduino uno R3 </p>
-                <a href = "#" class="btn-2">informacion</a>
+                <a href="{% url 'info_sensores' %}" class="btn-2">informacion</a>
             </div>
         </div>
         <div class="oferta-1">
@@ -82,7 +86,7 @@
             <div class="oferta-txt">
                 <h3>KID ACCS</h3>
                 <p>Todo tipo de accesorios de electronica </p>
-                <a href = "#" class="btn-2">informacion</a>
+                <a href="{% url 'info_accesorios' %}" class="btn-2">informacion</a>
             </div>
         </div>
     </section>
@@ -164,7 +168,7 @@
                 <li>Chuchas</li>
                 <li>95678122</li>
                 <li>Jr. Callao</li>
-                 <li>miguelazochuchazas@gmail.com</li>
+                <li>miguelazochuchazas@gmail.com</li>
             </ul>
         </div>
         <div class ="usuarios">
@@ -173,7 +177,7 @@
                 <li>Talento</li>
                 <li>95678122</li>
                 <li>Rio Torococha</li>
-                 <li>crisvalencia@gmail.com</li>
+                <li>crisvalencia@gmail.com</li>
             </ul>
         </div>
     </div>
