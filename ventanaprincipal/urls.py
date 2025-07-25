@@ -23,8 +23,16 @@ urlpatterns = [
 
 
     path('',views.principal, name = "principal"),
+<<<<<<< HEAD
     path('productos', include("productos.urls")),
     path('usuarios/', include('usuarios.urls')),
     path('informacion/', include('informacion.urls')),
+=======
+
+    path('productos', include("productos.urls")),
+    path('clientes', include("clientes.urls")),
+    path('informacion/', include("informacion.urls")),
+    path('usuarios/', include('usuarios.urls')),
+>>>>>>> 3d94c0261033b0def27954e1ddd3a47a93fc5769
 
 ]
