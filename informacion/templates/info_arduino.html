@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Kit Arduino</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <main class="productos contenido">
+        <h2>INFORMACIÓN KIT ARDUINO</h2>
+        <div class="info-detalle">
+            <img src="{% static 'imagenes/kidarduino.png' %}" alt="Kit Arduino">
+            <div class="info-txt">
+                <h3>Kit Completo de Arduino UNO R3</h3>
+                <p>Este kit básico de Arduino es perfecto para principiantes y entusiastas de la electrónica. Incluye todo lo necesario para empezar a programar y construir proyectos interactivos.</p>
+                <ul>
+                    <li>Placa Arduino UNO R3</li>
+                    <li>Cable USB</li>
+                    <li>Protoboard</li>
+                    <li>Cables Dupont</li>
+                    <li>LEDs de varios colores</li>
+                    <li>Resistencias</li>
+                    <li>Sensores básicos (temperatura, luz)</li>
+                    <li>Servomotor</li>
+                    <li>Componentes electrónicos adicionales</li>
+                    <li>Manual de inicio rápido y proyectos</li>
+                </ul>
+                <p>Ideal para aprender los fundamentos de la programación y la electrónica, y para desarrollar tus primeras creaciones.</p>
+            </div>
+        </div>
+        <a href="{% url 'principal' %}" class="btn-volver">← Volver a la ventana principal</a>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-cuerpo contenido">
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Taylor</li>
+                    <li>95678122</li>
+                    <li>Av. Ferial</li>
+                    <li>coaquiraidmetaylor@gmail.com</li>
+                </ul>
+            </div>
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Chuchas</li>
+                    <li>95678122</li>
+                    <li>Jr. Callao</li>
+                    <li>miguelazochuchazas@gmail.com</li>
+                </ul>
+            </div>
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Talento</li>
+                    <li>95678122</li>
+                    <li>Rio Torococha</li>
+                    <li>crisvalencia@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
