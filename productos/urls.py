@@ -8,5 +8,4 @@ urlpatterns = [
     path('mcu/', views.mcu, name='mcu'),
     path('accesorios/', views.accesorios, name='accesorios'),
 
-    
 ]

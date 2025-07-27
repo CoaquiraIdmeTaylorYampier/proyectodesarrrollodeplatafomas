@@ -4,6 +4,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensores</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="menu contenido">
+            <a href="{% url 'principal' %}" class="logo">logo</a>
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="{% static 'imagenes/menu.png' %}" class="menu-icono" alt="menu">
+            </label>
+            <nav class="inicio">
+                <ul>
+                    <li><a href="{% url 'principal' %}">INICIO</a></li>
+                    <li><a href="#">SERVICIOS</a></li>
+                    <li><a href="#">PRODUCTOS</a></li>
+                    <li><a href="#">CONTACTOS</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout_usuario' %}">CERRAR SESIÓN ({{ user.username }})</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login_usuario' %}">INICIAR SESIÓN</a></li>
+                        <li><a href="{% url 'registro_usuario' %}">REGISTRARSE</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <div>
+                <ul>
+                    <li class="submenu">
+                        <img src="{% static 'imagenes/car.svg' %}" id="img-carrito" alt="carrito">
+                        <div id="carrito">
+                            <table id="lista-carrito">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <p id="total-carrito">Total: $0</p>
+                            <a href="#" id="vaciar-carrito" class="btn-2">vaciar carrito</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="messages-container">
+        </div>
+    <main class="productos contenido" id="lista-1">
+        <h2>SENSORES</h2>
+        <div class="producto-cuerpo">
+            <div class="producto">
+                <img src="{% static 'imagenes/sensortemperatura.png' %}" alt="Sensor de temperatura TMP">
+                <div class="producto-txt">
+                    <h3>Sensor de temperatura</h3>
+                    <p>Sensor de temperatura TMP de 38GZ</p>
+                    <p class="precio">$6</p>
+                    <a href="#" class="agregar-carrito btn-2"
+                       data-id="sensor-temperatura-1"
+                       data-nombre="Sensor de temperatura TMP"
+                       data-precio="6"
+                       data-imagen="{% static 'imagenes/sensortemperatura.png' %}">agregar al carrito</a>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="{% static 'imagenes/sensorultrasonido.png' %}" alt="Sensor Ultrasonido HC-SR04">
+                <div class="product0-txt">
+                    <h3>sensor de sonido</h3>
+                    <p>Sensor Ultrasonido HC-SR04 de arduino</p>
+                    <p class="precio">$17</p>
+                    <a href="#" class="agregar-carrito btn-2"
+                       data-id="sensor-ultrasonido-2"
+                       data-nombre="Sensor Ultrasonido"
+                       data-precio="17"
+                       data-imagen="{% static 'imagenes/sensorultrasonido.png' %}">agregar al carrito</a>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="{% static 'imagenes/sensorinfrarrojo.png' %}" alt="Sensor infrarrojo FC-51">
+                <div class="producto-txt">
+                    <h3>sensor infrarrojo</h3>
+                    <p>Sensor infrarrojo para obstaculos FC-51</p>
+                    <p class="precio">$15</p>
+                    <a href="#" class="agregar-carrito btn-2"
+                       data-id="sensor-infrarrojo-3"
+                       data-nombre="Sensor Infrarrojo"
+                       data-precio="15"
+                       data-imagen="{% static 'imagenes/sensorinfrarrojo.png' %}">agregar al carrito</a>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="{% static 'imagenes/sensortem.jpg' %}" alt="DHT11 sensor temperatura y humedad">
+                <div class="producto-txt">
+                    <h3>sensor de humedad</h3>
+                    <p>DHT11 sensor temperatura y humedad para arduino</p>
+                    <p class="precio">$12</p>
+                    <a href="#" class="agregar-carrito btn-2"
+                       data-id="sensor-humedad-4"
+                       data-nombre="Sensor de humedad DHT11"
+                       data-precio="12"
+                       data-imagen="{% static 'imagenes/sensortem.jpg' %}">agregar al carrito</a>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="{% static 'imagenes/sensorluz.jpg' %}" alt="Sensor de luz LDR">
+                <div class="producto-txt">
+                    <h3>regulador</h3>
+                    <p>El sensor de luz LDR input analogico</p>
+                    <p class="precio">$5</p>
+                    <a href="#" class="agregar-carrito btn-2"
+                       data-id="sensor-luz-5"
+                       data-nombre="Sensor de luz LDR"
+                       data-precio="5"
+                       data-imagen="{% static 'imagenes/sensorluz.jpg' %}">agregar al carrito</a>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="{% static 'imagenes/sensorcol.jpg' %}" alt="Sensor de color TCS230">
+                <div class="producto-txt">
+                    <h3>sensor de color</h3>
+                    <p>TCS230 sensor reconocimiento de color</p>
+                    <p class="precio">$18</p>
+                    <a href="#" class="agregar-carrito btn-2"
+                       data-id="sensor-color-6"
+                       data-nombre="Sensor de color TCS230"
+                       data-precio="18"
+                       data-imagen="{% static 'imagenes/sensorcol.jpg' %}">agregar al carrito</a>
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'principal' %}" class="btn-volver">← Volver a la ventana principal</a>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-cuerpo contenido">
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Taylor</li>
+                    <li>95678122</li>
+                    <li>Av. Ferial</li>
+                    <li>coaquiraidmetaylor@gmail.com</li>
+                </ul>
+            </div>
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Chuchas</li>
+                    <li>95678122</li>
+                    <li>Jr. Callao</li>
+                    <li>miguelazo@gmail.com</li>
+                </ul>
+            </div>
+            <div class ="usuarios">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Talento</li>
+                    <li>95678122</li>
+                    <li>Rio Torococha</li>
+                    <li>crisvalencia@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'script.js' %}"></script>
+=======
     <title>componentesactivos</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
@@ -100,5 +272,6 @@
     </div>
 </footer>
 
+>>>>>>> 3d94c0261033b0def27954e1ddd3a47a93fc5769
 </body>
 </html>
