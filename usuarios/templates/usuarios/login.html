@@ -44,7 +44,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {# Contenido del carrito (manejo por JS o futura app) #}
                                 </tbody>
                             </table>
                             <a href="#" id="vaciar-carrito" class="btn-2">vaciar carrito</a>
@@ -68,7 +67,6 @@
             <h2>Iniciar Sesión</h2>
             <form method="post" class="auth-form">
                 {% csrf_token %}
-                {# Itera sobre cada campo del formulario de Django para renderizar label, input y errores #}
                 {% for field in form %}
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
@@ -85,7 +83,6 @@
                         {% endif %}
                     </div>
                 {% endfor %}
-                {# Errores que no están asociados a un campo específico (ej. credenciales inválidas) #}
                 {% if form.non_field_errors %}
                     <ul class="errorlist">
                         {% for error in form.non_field_errors %}

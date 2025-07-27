@@ -1,16 +1,16 @@
 from django import forms
 from django.contrib.auth.models import User 
-class RegistroUsuarioForm(forms.Form):
-    username = forms.CharField(
+class RegistroUsuarioForm(forms.Form): 
+    username = forms.CharField(  
         max_length=150,
-        required=True,
+        required=True, 
         label="Nombre de Usuario",
         error_messages={'required': 'Por favor, ingresa un nombre de usuario.'}
     )
     email = forms.EmailField(
-        required=True,
+        required=True, 
         label="Correo Electrónico",
-        error_messages={
+        error_messages={  
             'required': 'El correo electrónico es obligatorio.',
             'invalid': 'Por favor, ingresa un formato de correo electrónico válido.'
         }
@@ -28,7 +28,7 @@ class RegistroUsuarioForm(forms.Form):
         error_messages={'required': 'Por favor, confirma tu contraseña.'}
     )
 
-    def clean(self):
+    def clean(self): 
         cleaned_data = super().clean()
         password = cleaned_data.get("password")
         password2 = cleaned_data.get("password2")
@@ -41,11 +41,12 @@ class RegistroUsuarioForm(forms.Form):
 
         return cleaned_data
 
-    def clean_username(self):
-        username = self.cleaned_data['username']
+    def clean_username(self): 
+        username = self.cleaned_data['username'] #Recupera 
         if User.objects.filter(username=username).exists():
             raise forms.ValidationError("Este nombre de usuario ya está registrado. Por favor, elige otro.")
-        return username
+        
+        return username 
 
     def clean_email(self):
         email = self.cleaned_data['email']

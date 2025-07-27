@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        ul { list-style-type: none; padding: 0; }
+        li { background-color: #f4f4f4; margin-bottom: 5px; padding: 10px; border-radius: 5px; }
+        li strong { color: #007bff; }
+    </style>
+</head>
+<body>
+    <h1>Usuarios Registrados</h1>
+
+    {% if usuarios %} 
+        <ul>
+            {% for user in usuarios %} 
+                <li>
+                    <strong>Nombre de Usuario:</strong> {{ user.username }} <br>
+                    <strong>Correo Electrónico:</strong> {{ user.email }} <br>
+                    {# Puedes añadir más detalles del usuario si los necesitas, por ejemplo: #}
+                    {# <strong>Fecha de Creación:</strong> {{ user.date_joined|date:"d M Y H:i" }} #}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay usuarios registrados aún.</p>
+    {% endif %}
+
+    <p><a href="{% url 'registro_usuario' %}">Registrar nuevo usuario</a></p>
+    <p><a href="{% url 'principal' %}">Volver a la página principal</a></p> 
+</body>
+</html>
